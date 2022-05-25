@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
-export default function Todolist({ students }) {
+export default function Todolist({ student, index }) {
     return (
-        <div>
+        <tbody>
             <tr>
-                <td>
-                    {students.name}
-                </td>
+                <td>{index}</td>
+                <td>{student.name}</td>
             </tr>
-        </div>
-    )
+        </tbody>
+
+    );
 }

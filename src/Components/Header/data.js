@@ -7,7 +7,7 @@ export const data = [
         name: "hamza"
     },
     {
-        name: "pari"
+        name: "Waqas"
     },
     {
         name: "sweeto"
