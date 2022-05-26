@@ -1,7 +1,21 @@
 import React from 'react'
 import "../Todo/style.css";
+import { useState } from 'react';
 
-export default function todo() {
+export default function Todo() {
+    const [task, setTask] = useState("");
+    const [data, setData] = useState([]);
+    const onChangeHandler = (e) => {
+        setTask(e.target.value);
+        console.log(task);
+    }
+    const submitHandler = (e) => {
+        alert("Ccccccccccccc")
+        e.preventDefault();
+        const newData = task;
+        setData([...data,newData]);
+        setTask("");
+    }
     return (
         <div className="container">
             <div className="row justify-content-center align-items-center main-row">
@@ -11,10 +25,10 @@ export default function todo() {
                             <h4 className='text-center'>Todo App</h4>
                         </div>
                     </div>
-                    <form action="">
+                    <form onSubmit={submitHandler}>
                         <div className='row justify-content-center text-white p-2'>
-                            <div className='form-group flex-fill mb-2 col-9'>
-                                <input type="text" id='todo-input' title='Enter Your Todo' placeholder='Enter Your Todo' className='form-control' />
+                            <div className='form-group flex-fill mb-2 col-5'>
+                                <input type="text" id='todo-input' title='Enter Your Todo' onChange={onChangeHandler} value={task} placeholder='Enter Your Todo' className='form-control' />
 
                             </div>
                             <button title='Add Todo' type='button' className='btn btn-primary mb-2 ml-3 col-4'>
