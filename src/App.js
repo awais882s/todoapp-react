@@ -1,10 +1,9 @@
 import "../node_modules/bootstrap/dist/css/awais.css";
+import Index from "./Components/Todo";
 function App() {
   return (
     <div className="App">
-      <div className="d-flex justify-content-center align-items-center mt-5 t">
-        <h1>TodoApp</h1>
-      </div>
+      <Index />
     </div>
   );
 }
