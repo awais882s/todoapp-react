@@ -2,6 +2,8 @@ import React from 'react'
 import "../Todo/style.css";
 import { useState } from 'react';
 import ShowTodo from './showTodo';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Todo() {
     const [task, setTask] = useState("");
@@ -18,15 +20,25 @@ export default function Todo() {
             // console.log("new inputs>>>>>", newData);
             setTask("");
 
-        } else {
-            alert("You cannot Add Empty Values")
+        }
+        else {
+
+            // toast("You Cannot Add Empty Values");
+            toast.error('You Cannot Add Empty', {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
 
         }
 
     }
     // for delete item from the task
     const deleteHandler = (index) => {
-        alert("delte btn")
         console.log("you have clicked the delete button", index);
         let newTask = data.filter((task, i) => {
             if (i !== index) {
@@ -59,6 +71,11 @@ export default function Todo() {
                                 Add Todo
                             </button>
 
+                            <div>
+                                <div onClick={submitHandler}></div>
+                                <ToastContainer />
+                            </div>
+
                         </div>
                     </form>
                     {
@@ -73,7 +90,7 @@ export default function Todo() {
                         })
                     }
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
