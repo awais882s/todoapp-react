@@ -11,17 +11,16 @@ export default function Todo() {
         console.log(task);
     }
     const submitHandler = (e) => {
-        alert("Ccccccccccccc")
         e.preventDefault();
         const newData = task;
         setData([...data, newData]);
-        console.log("new inputs>>>>>>>>>>>>>>>>", newData);
+        // console.log("new inputs>>>>>", newData);
         setTask("");
     }
     return (
         <div className="container">
             <div className="row justify-content-center align-items-center main-row">
-                <div className="col shadow main-col text-white">
+                <div className="col shadow main-col text-dark">
                     <div className='row bg-primary text-white'>
                         <div className='col p-2'>
                             <h4 className='text-center'>Todo App</h4>
@@ -45,12 +44,23 @@ export default function Todo() {
                                 <ShowTodo
                                     key={index}
                                     id={index}
-                                    newValue={value}
+                                    task={value}
                                 />
                             )
                         })
                     }
                 </div>
+                {/* {
+                    data.map((value, index) => {
+                        return (
+                            <ShowTodo
+                                key={index}
+                                id={index}
+                                task={value}
+                            />
+                        )
+                    })
+                } */}
             </div>
         </div>
     )
