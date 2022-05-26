@@ -5,7 +5,8 @@ export default function Todolist({ student, index }) {
         <tbody>
             <tr>
                 <td>{index}</td>
-                <td>{student.name}</td>
+                <td>{student.value}</td>
+                
             </tr>
         </tbody>
 

@@ -11,5 +11,5 @@ export const data = [
     },
     {
         name: "sweeto"
-    }
+    },
 ]

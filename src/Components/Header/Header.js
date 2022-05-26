@@ -17,7 +17,8 @@ export default function Header() {
     }
     console.log("inputs value", inputs);
     // add new data
-
+    setStudents([...student, inputs])
+    setInput("")
   }
 
   return (
@@ -33,7 +34,7 @@ export default function Header() {
       </div>
       <br />
       <div className='container ms-4'>
-        <table className='table table-primary'>
+        <table className='table'>
           <thead>
             <tr>
               <th>
@@ -45,14 +46,14 @@ export default function Header() {
             </tr>
           </thead>
           {
-            student.map((item, index) => {
+            input.map((item, index) => {
               return (
                 <Todolist
                   student={item}
                   index={index}
                 />
-              );
-            })};
+              )
+            })}
         </table>
       </div>
     </div>
