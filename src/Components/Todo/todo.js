@@ -1,6 +1,7 @@
 import React from 'react'
 import "../Todo/style.css";
 import { useState } from 'react';
+import ShowTodo from './showTodo';
 
 export default function Todo() {
     const [task, setTask] = useState("");
@@ -13,7 +14,8 @@ export default function Todo() {
         alert("Ccccccccccccc")
         e.preventDefault();
         const newData = task;
-        setData([...data,newData]);
+        setData([...data, newData]);
+        console.log("new inputs>>>>>>>>>>>>>>>>", newData);
         setTask("");
     }
     return (
@@ -25,19 +27,29 @@ export default function Todo() {
                             <h4 className='text-center'>Todo App</h4>
                         </div>
                     </div>
-                    <form onSubmit={submitHandler}>
+                    <form>
                         <div className='row justify-content-center text-white p-2'>
                             <div className='form-group flex-fill mb-2 col-5'>
                                 <input type="text" id='todo-input' title='Enter Your Todo' onChange={onChangeHandler} value={task} placeholder='Enter Your Todo' className='form-control' />
 
                             </div>
-                            <button title='Add Todo' type='button' className='btn btn-primary mb-2 ml-3 col-4'>
+                            <button onClick={submitHandler} title='Add Todo' type='button' className='btn btn-primary mb-2 ml-3 col-4'>
                                 Add Todo
                             </button>
 
                         </div>
                     </form>
-
+                    {
+                        data.map((value, index) => {
+                            return (
+                                <ShowTodo
+                                    key={index}
+                                    id={index}
+                                    newValue={value}
+                                />
+                            )
+                        })
+                    }
                 </div>
             </div>
         </div>
