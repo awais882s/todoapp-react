@@ -28,6 +28,14 @@ export default function Todo() {
     const deleteHandler = (index) => {
         alert("delte btn")
         console.log("you have clicked the delete button", index);
+        let newTask = data.filter((task, i) => {
+            if (i !== index) {
+                return task;
+
+            }
+        })
+        setData([...newTask])
+        console.log("new task", newTask);
 
     }
 
