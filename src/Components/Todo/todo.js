@@ -19,7 +19,7 @@ export default function Todo() {
             setTask("");
 
         } else {
-            return data
+            alert("You cannot Add Empty Values")
 
         }
 
@@ -53,23 +53,12 @@ export default function Todo() {
                                     key={index}
                                     id={index}
                                     task={value}
-                                // onSelect={deletHandler}
+                                onSelect={deletHandler}
                                 />
                             )
                         })
                     }
                 </div>
-                {/* {
-                    data.map((value, index) => {
-                        return (
-                            <ShowTodo
-                                key={index}
-                                id={index}
-                                task={value}
-                            />
-                        )
-                    })
-                } */}
             </div>
         </div>
     )
