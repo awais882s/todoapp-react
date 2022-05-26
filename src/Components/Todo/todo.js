@@ -11,12 +11,20 @@ export default function Todo() {
         console.log(task);
     }
     const submitHandler = (e) => {
-        e.preventDefault();
-        const newData = task;
-        setData([...data, newData]);
-        // console.log("new inputs>>>>>", newData);
-        setTask("");
+        if (task !== "") {
+            e.preventDefault();
+            const newData = task;
+            setData([...data, newData]);
+            // console.log("new inputs>>>>>", newData);
+            setTask("");
+
+        } else {
+            return data
+
+        }
+
     }
+
     return (
         <div className="container">
             <div className="row justify-content-center align-items-center main-row">
@@ -45,6 +53,7 @@ export default function Todo() {
                                     key={index}
                                     id={index}
                                     task={value}
+                                // onSelect={deletHandler}
                                 />
                             )
                         })
