@@ -24,6 +24,13 @@ export default function Todo() {
         }
 
     }
+    // for delete item from the task
+    const deleteHandler = (index) => {
+        alert("delte btn")
+        console.log("you have clicked the delete button", index);
+
+    }
+
 
     return (
         <div className="container">
@@ -50,10 +57,9 @@ export default function Todo() {
                         data.map((value, index) => {
                             return (
                                 <ShowTodo
-                                    key={index}
-                                    id={index}
+                                    index={index}
                                     task={value}
-                                onSelect={deletHandler}
+                                    deleteHandler={deleteHandler}
                                 />
                             )
                         })
