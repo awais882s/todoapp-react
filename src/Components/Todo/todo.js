@@ -11,7 +11,6 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
 
 
 
-
 export default function Todo() {
     const [task, setTask] = useState("");
     const [data, setData] = useState([]);
@@ -121,6 +120,7 @@ export default function Todo() {
                 progress: undefined,
             });
         }
+        
     }
 
 
