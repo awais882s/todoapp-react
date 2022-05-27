@@ -150,8 +150,8 @@ export default function Todo() {
                                 </button>
                             ) : (
 
-                                <button onClick={submitHandler} title='Add Todo' type='button' className='btn btn-primary mb-2 ml-3 col-2'>
-                                    <FontAwesomeIcon icon={faPlus} />
+                                <button onClick={submitHandler} title='Add Todo' type='button' className='btn btn-primary mb-2 ml-3 col-2 plus'>
+                                    <FontAwesomeIcon icon={faPlus} style={{ fontSize: "25px" }} />
                                 </button>
                             )}
 
