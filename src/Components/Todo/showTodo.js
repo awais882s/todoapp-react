@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ShowTodo({ task, index, deleteHandler }) {
+export default function ShowTodo({ task, index, deleteHandler, updateHandler }) {
     return (
         <div>
             <div className="container">
@@ -19,7 +19,7 @@ export default function ShowTodo({ task, index, deleteHandler }) {
 
                     </div>
                     <div className="col-3">
-                        <button className="btn btn-success" >
+                        <button className="btn btn-success" onClick={() => updateHandler(task, index)} >
                             Update
                         </button>
 
