@@ -4,6 +4,12 @@ import { useState } from 'react';
 import ShowTodo from './showTodo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPenToSquare } from '@fortawesome/free-solid-svg-icons'
+
+
+
 
 
 export default function Todo() {
@@ -139,11 +145,13 @@ export default function Todo() {
                             </button> */}
 
                             {flag ? (
-                                <button className='btn btn-info' onClick={ctaUpdateHandler}>Update</button>
+                                <button className='btn btn-info w-50 pentosquare' onClick={ctaUpdateHandler}>
+                                    <FontAwesomeIcon icon={faPenToSquare} style={{ fontSize: "30px" }} />
+                                </button>
                             ) : (
 
-                                <button onClick={submitHandler} title='Add Todo' type='button' className='btn btn-primary mb-2 ml-3 col-4'>
-                                    Add Todo
+                                <button onClick={submitHandler} title='Add Todo' type='button' className='btn btn-primary mb-2 ml-3 col-2'>
+                                    <FontAwesomeIcon icon={faPlus} />
                                 </button>
                             )}
 

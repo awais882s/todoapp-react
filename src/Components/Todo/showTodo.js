@@ -18,15 +18,15 @@ export default function ShowTodo({ task, index, deleteHandler, updateHandler }) 
 
                     </div>
                     {/* <div className="d-flex mb-2"> */}
-                    <div className="col-3">
-                        <button className="btn btn-danger " onClick={() => deleteHandler(index)} >
-                            <FontAwesomeIcon icon={faTrash} style={{fontSize:"25px"}}  />
+                    <div className="col-3 offset-md-1">
+                        <button title="Delete" className="btn btn-danger " onClick={() => deleteHandler(index)} >
+                            <FontAwesomeIcon icon={faTrash} style={{fontSize:"25px", borderRadius:"20px"}}  />
                         </button>
 
                     </div>
-                    <div className="col-3">
-                        <button className="btn btn-success" onClick={() => updateHandler(task, index)} >
-                            <FontAwesomeIcon icon={faPenToSquare} style={{fontSize:"25px"}} />
+                    <div className="col-3 ">
+                        <button title="Update" className="btn btn-success" onClick={() => updateHandler(task, index)} >
+                            <FontAwesomeIcon icon={faPenToSquare} style={{fontSize:"25px",borderRadius:"20px"}} />
                         </button>
 
                     </div>
