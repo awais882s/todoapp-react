@@ -136,7 +136,7 @@ export default function Todo() {
                     <form>
                         <div className='row justify-content-center text-white p-2'>
                             <div className='form-group flex-fill mb-2 col-5'>
-                                <input type="text" maxLength={12} id='todo-input' title='Enter Your Todo' onChange={onChangeHandler} value={task} placeholder='Enter Your Todo' className='form-control' />
+                                <input type="text" maxLength={10} id='todo-input' title='Enter Your Todo' onChange={onChangeHandler} value={task} placeholder='Enter Your Todo' className='form-control' />
 
                             </div>
 
