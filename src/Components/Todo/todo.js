@@ -5,6 +5,7 @@ import ShowTodo from './showTodo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 export default function Todo() {
     const [task, setTask] = useState("");
     const [data, setData] = useState([]);
@@ -21,12 +22,20 @@ export default function Todo() {
             setData([...data, newData]);
             // console.log("new inputs>>>>>", newData);
             setTask("");
-
+            toast.success('Value Is Added', {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
         }
         else {
 
             // toast("You Cannot Add Empty Values");
-            toast.error('You Cannot Add Empty', {
+            toast.error('You Cannot Add Empty Values!', {
                 position: "bottom-left",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -45,12 +54,19 @@ export default function Todo() {
         let newTask = data.filter((task, i) => {
             if (i !== index) {
                 return task;
-
             }
         })
         setData([...newTask])
         console.log("new task", newTask, index);
-
+        toast.error('Deleted', {
+            position: "bottom-left",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        });
     }
     //  for updating values
 
@@ -58,33 +74,26 @@ export default function Todo() {
         console.log("need to update task", task);
         setUpdatedindex(index)
         setTask(task);
-        setFlag(true)
-
-
+        setFlag(true);
     }
     const ctaUpdateHandler = () => {
         if (task !== "") {
-            const newData = task;
+            // e.preventDefault();
+            let newData = task;
             // setData([...newData]);
             // console.log("new inputs>>>>>", newData);
-            let updateTask = task.map((task, index) => {
+            let updateTask = data.map((data, index) => {
                 if (updatedindex === index) {
                     return newData;
 
                 } else {
-                    return task;
-
+                    return data;
                 }
             })
             setData([...updateTask]);
             setTask("");
             setFlag(false);
-
-        }
-        else {
-
-            // toast("You Cannot Add Empty Values");
-            toast.error('You Cannot Add Empty', {
+            toast.success('Value Is Updated', {
                 position: "bottom-left",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -93,13 +102,19 @@ export default function Todo() {
                 draggable: true,
                 progress: undefined,
             });
-
         }
-
-
-
-
-
+        else {
+            // toast("You Cannot Add Empty Values");
+            toast.error('You Cannot Add Empty Values', {
+                position: "bottom-left",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
     }
 
 
@@ -115,7 +130,7 @@ export default function Todo() {
                     <form>
                         <div className='row justify-content-center text-white p-2'>
                             <div className='form-group flex-fill mb-2 col-5'>
-                                <input type="text" id='todo-input' title='Enter Your Todo' onChange={onChangeHandler} value={task} placeholder='Enter Your Todo' className='form-control' />
+                                <input type="text" maxLength={12} id='todo-input' title='Enter Your Todo' onChange={onChangeHandler} value={task} placeholder='Enter Your Todo' className='form-control' />
 
                             </div>
 
