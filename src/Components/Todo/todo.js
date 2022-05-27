@@ -22,7 +22,7 @@ export default function Todo() {
             setData([...data, newData]);
             // console.log("new inputs>>>>>", newData);
             setTask("");
-            toast.success('Value Is Added', {
+            toast.success('Value Is Added Successfully', {
                 position: "bottom-left",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -58,7 +58,7 @@ export default function Todo() {
         })
         setData([...newTask])
         console.log("new task", newTask, index);
-        toast.error('Deleted', {
+        toast.error(' Successfully Deleted Items', {
             position: "bottom-left",
             autoClose: 5000,
             hideProgressBar: false,
@@ -93,7 +93,7 @@ export default function Todo() {
             setData([...updateTask]);
             setTask("");
             setFlag(false);
-            toast.success('Value Is Updated', {
+            toast.success('Value Is Updated Successfully', {
                 position: "bottom-left",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -124,7 +124,7 @@ export default function Todo() {
                 <div className="col shadow main-col text-dark">
                     <div className='row bg-primary text-white'>
                         <div className='col p-2'>
-                            <h4 className='text-center'>Todo App</h4>
+                            <h4 className='text-center text-dark h1'>Todo App</h4>
                         </div>
                     </div>
                     <form>
