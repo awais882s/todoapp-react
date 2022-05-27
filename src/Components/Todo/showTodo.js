@@ -19,7 +19,7 @@ export default function ShowTodo({ task, index, deleteHandler, updateHandler }) 
 
                     </div>
                     <div className="col-3">
-                        <button className="btn btn-success" onClick={() => updateHandler(task, index)} >
+                        <button className="btn btn-success" onClick={() => updateHandler(task,index)} >
                             Update
                         </button>
 

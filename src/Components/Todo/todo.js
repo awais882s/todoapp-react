@@ -4,12 +4,11 @@ import { useState } from 'react';
 import ShowTodo from './showTodo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { faL } from '@fortawesome/free-solid-svg-icons';
 
 export default function Todo() {
     const [task, setTask] = useState("");
     const [data, setData] = useState([]);
-    const [updateindex, setUpdateindex] = useState("");
+    const [updatedindex, setUpdatedindex] = useState(0);
     const [flag, setFlag] = useState(false);
     const onChangeHandler = (e) => {
         setTask(e.target.value);
@@ -50,40 +49,42 @@ export default function Todo() {
             }
         })
         setData([...newTask])
-        console.log("new task", newTask,index);
+        console.log("new task", newTask, index);
 
     }
     //  for updating values
 
     const updateHandler = (task, index) => {
-        console.log("Need to update the task", task);
-        setUpdateindex(index);
-        setTask(task.task);
-        setFlag(true);
+        console.log("need to update task", task);
+        setUpdatedindex(index)
+        setTask(task);
+        setFlag(true)
+
 
     }
-    const ctaUpdateHandler = (e) => {
-
+    const ctaUpdateHandler = () => {
         if (task !== "") {
-            let task = task;
-            console.log("need to update the task", task);
-            let updatedTask = task.map((task, index) => {
-                if (updateindex === index) {
-                    return task;
-                }
-                else {
-                    return task;
-                }
+            const newData = task;
+            // setData([...newData]);
+            // console.log("new inputs>>>>>", newData);
+            let updateTask = task.map((task, index) => {
+                if (updatedindex === index) {
+                    return newData;
 
-            });
-            setData([...updatedTask]);
+                } else {
+                    return task;
+
+                }
+            })
+            setData([...updateTask]);
             setTask("");
             setFlag(false);
 
+        }
+        else {
 
-
-        } else {
-            toast.error('You Cannot Update Add Empty', {
+            // toast("You Cannot Add Empty Values");
+            toast.error('You Cannot Add Empty', {
                 position: "bottom-left",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -94,6 +95,10 @@ export default function Todo() {
             });
 
         }
+
+
+
+
 
     }
 
@@ -119,7 +124,7 @@ export default function Todo() {
                             </button> */}
 
                             {flag ? (
-                                <button className='btn btn-danger' onClick={ctaUpdateHandler}>Update</button>
+                                <button className='btn btn-info' onClick={ctaUpdateHandler}>Update</button>
                             ) : (
 
                                 <button onClick={submitHandler} title='Add Todo' type='button' className='btn btn-primary mb-2 ml-3 col-4'>
